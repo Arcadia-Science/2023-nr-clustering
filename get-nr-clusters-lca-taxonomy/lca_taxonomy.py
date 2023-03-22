@@ -3,6 +3,7 @@ import modal
 
 CHUNK_SIZE = 100
 INPUT_FILE_NAME = "test.tsv"
+OUTPUT_CSV_HEADER = ["representative", "cluster_taxids", "lca_taxid", "lca_taxid_formatted"]
 
 stub = modal.Stub("downloading-dbs-all-the-way-down")
 taxonkit_image = (
@@ -66,9 +67,7 @@ def main():
     # Open a CSV file for writing
     with open("csv_to_rule_them_all.csv", "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(
-            ["representative", "cluster_taxids", "lca_taxid", "lca_taxid_formatted"]
-        )
+        writer.writerow(OUTPUT_CSV_HEADER)
 
         # Open the CSV file and read the data
         with open(INPUT_FILE_NAME, "r") as tsvfile:
