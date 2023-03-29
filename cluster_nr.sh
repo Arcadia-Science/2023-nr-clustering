@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # The goal of these commands was to build a clustered nr database (90% identity, 90% length)
 # nr the NCBI non-redundant protein database for BLAST and other applications.
 
