@@ -6,9 +6,6 @@ rule all:
         "nr_cluster_taxid_formatted_final.tsv.gz",
         "nr_cluster_uniq_reps_line_count.txt"
     
-# rules to add:
-# 3. add header sequences to nr_cluster.tsv    
-
 #############################################################################
 ## cluster NR with mmseqs2
 #############################################################################
@@ -125,6 +122,7 @@ rule get_lca_taxid_for_each_cluster:
     output: "nr_cluster_taxid_lca.tsv"
     params: datadir="inputs/taxdump/"
     #conda: "envs/taxonkit.yml" # needs to be 0.14.2, which isn't on conda yet
+    # in the meantime, the executable can be downloaded from this url: https://github.com/shenwei356/taxonkit/files/11073880/taxonkit_linux_amd64.tar.gz
     shell:'''
     ./taxonkit lca --data-dir {params.datadir} -i 2 -s ";" -o {output} {input.tsv} --buffer-size 1G
     '''
