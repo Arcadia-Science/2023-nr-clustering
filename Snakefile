@@ -4,7 +4,8 @@ rule all:
     input:
         "nr_cluster_taxid_formatted_final_line_count.txt",
         "nr_cluster_taxid_formatted_final.tsv.gz",
-        "nr_cluster_uniq_reps_line_count.txt"
+        "nr_cluster_uniq_reps_line_count.txt",
+        "nr_cluster_taxid_formatted_final.sqlite"
     
 #############################################################################
 ## cluster NR with mmseqs2
@@ -150,13 +151,18 @@ rule compress_output:
     input: "nr_cluster_taxid_formatted_final.tsv"
     output: "nr_cluster_taxid_formatted_final.tsv.gz"
     shell: '''
-    gzip {input}
+    gzip -c {input} > {output}
     '''
     
 rule get_line_count:
-    input: "nr_cluster_taxid_formatted_final.tsv.gz"
+    input: "nr_cluster_taxid_formatted_final.tsv"
     output: "nr_cluster_taxid_formatted_final_line_count.txt"
     shell:'''
-    gunzip -c {input} | wc -l > {output}
+    wc -l {input} > {output}
     '''
 
+rule make_sqlite_db:
+    input: tsv="nr_cluster_taxid_formatted_final.tsv"
+    output: sqlite="nr_cluster_taxid_formatted_final.sqlite"
+    conda: 'envs/r-sql.yml'
+    script: "scripts/make_sqlite_db.R"
