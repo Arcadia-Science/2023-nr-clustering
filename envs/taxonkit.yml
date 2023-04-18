@@ -3,4 +3,4 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - taxonkit=0.14.1 
+  - taxonkit=0.14.2

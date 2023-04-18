@@ -122,10 +122,9 @@ rule get_lca_taxid_for_each_cluster:
         dmp="inputs/taxdump/nodes.dmp"
     output: "nr_cluster_taxid_lca.tsv"
     params: datadir="inputs/taxdump/"
-    #conda: "envs/taxonkit.yml" # needs to be 0.14.2, which isn't on conda yet
-    # in the meantime, the executable can be downloaded from this url: https://github.com/shenwei356/taxonkit/files/11073880/taxonkit_linux_amd64.tar.gz
+    conda: "envs/taxonkit.yml"
     shell:'''
-    ./taxonkit lca --data-dir {params.datadir} -i 2 -s ";" -o {output} {input.tsv} --buffer-size 1G
+    taxonkit lca --data-dir {params.datadir} -i 2 -s ";" -o {output} {input.tsv} --buffer-size 1G
     '''
 
 rule reformat_lca_taxid_to_lineage:

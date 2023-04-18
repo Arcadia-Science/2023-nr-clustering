@@ -5,6 +5,9 @@ We were interested in using this database to reduce search times and to increase
 However, as of March 2023, the database is not available for download.
 Therefore, we re-made this database ourselves.
 The [Snakefile](./Snakefile) in this repository documents how we performed the clustering and created a taxonomy sheet that annotates the lowest common ancestor for each protein cluster.
+It starts by downloading the [NCBI nr database in FASTA format](https://ftp.ncbi.nlm.nih.gov/blast/db/v5/FASTA) (143Gb in March 2023).
+After clustering this file at 90% length and 90% identity, it then determines the lowest common ancestor for each cluster using the [prot.accession2taxid.FULL files](https://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/) (12Gb in March 2023) and the [taxdump files](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/).
+The final output includes the representative sequences in FASTA format, a TSV file that reports cluster representatives and members, and an SQLite DB with representative sequence names and their taxonomic lineages (as taxid and as names).
 
 ## Getting started with this repository
 
@@ -34,3 +37,4 @@ snakemake -j 1 --use-conda --rerun-incomplete -k -n
 ```
 
 where `-j` specifies the number of threads to run with, `--use-conda` uses conda to manage software environments, `--rerun-incomplete` re-runs incomplete files, `-k` tells the pipeline to continue with independent steps when one step fails, and `-n` signifies to run a dry run first.
+
