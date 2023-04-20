@@ -1,0 +1,22 @@
+# get-nr-clusters-lca-taxonomy
+
+This folder implements a Python script that takes a TSV of taxids and outputs a CSV that includes the original rows in the TSV along with the output of the commands of `taxonkit lca` and `taxonkit reformat`. The script is written to be run (and be parallelized) with [Modal Labs](https://modal.com/).
+
+This folder uses conda to manage software environments and installations. You can find operating system-specific instructions for installing miniconda here. After installing conda and mamba, run the following command to create the run environment.
+
+```
+mamba env create --file environment.yml
+mamba activate modal
+```
+
+Following this, you need to login to Modal:
+
+```
+modal token new
+```
+
+Then, run the script with:
+
+```
+modal run lca_taxonomy.py
+```

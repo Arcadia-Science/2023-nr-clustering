@@ -37,4 +37,3 @@ snakemake -j 1 --use-conda --rerun-incomplete -k -n
 ```
 
 where `-j` specifies the number of threads to run with, `--use-conda` uses conda to manage software environments, `--rerun-incomplete` re-runs incomplete files, `-k` tells the pipeline to continue with independent steps when one step fails, and `-n` signifies to run a dry run first.
-
