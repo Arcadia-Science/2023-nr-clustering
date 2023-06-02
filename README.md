@@ -54,6 +54,7 @@ snakemake -j 1 --use-conda --rerun-incomplete -k -n
 
 where `-j` specifies the number of threads to run with, `--use-conda` uses conda to manage software environments, `--rerun-incomplete` re-runs incomplete files, `-k` tells the pipeline to continue with independent steps when one step fails, and `-n` signifies to run a dry run first.
 
-## Citation
+## Citation & contributing
 
 You can read more about this project in [this pub](https://doi.org/10.57844/arcadia-w8xt-pc81).
+See [this guide](https://github.com/Arcadia-Science/arcadia-software-handbook/blob/main/guides-and-standards/guide-credit-for-contributions.md) to see how we recognize feedback and contributions on our code.
