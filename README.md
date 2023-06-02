@@ -56,5 +56,4 @@ where `-j` specifies the number of threads to run with, `--use-conda` uses conda
 
 ## Citation
 
-This repository is associated with [this pub]().
-You can read more about the project therein.
+You can read more about this project in [this pub](https://doi.org/10.57844/arcadia-w8xt-pc81).
