@@ -1,5 +1,7 @@
 # Clustering NCBI's nr database
 
+> As of September 2023, the NCBI BLAST ClusteredNR database is available for download [here](https://ncbiinsights.ncbi.nlm.nih.gov/2023/09/26/blast-clusterednr-database-available-download/). The clustered nr database described here and in the accompanying pub should be considered superseded. 
+
 NCBI now provides [a clustered nr database](https://ncbiinsights.ncbi.nlm.nih.gov/2022/05/02/clusterednr_1/) when users perform BLASTP queries using [NCBI's online interface](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome).
 We were interested in using this database to reduce search times and to increase the taxonomic diversity of returned sequences when doing BLAST searches.
 However, as of March 2023, the database is not available for download.
@@ -11,7 +13,7 @@ The final output includes the representative sequences in FASTA format, a TSV fi
 
 ## Outputs & Downloads
 
-**The database and associated taxonomy files are available for download on [OSF](https://osf.io/tejwd/).**
+**The database and associated taxonomy files are available for download on [Zenodo](https://doi.org/10.5281/zenodo.17488372).**
 
 Description of output files:
 * `nr_rep_seq.fasta.gz` (59GB): FASTA file of representative sequences output by mmseqs2 `easy-linclust`.
